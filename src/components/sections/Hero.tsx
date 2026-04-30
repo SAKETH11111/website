@@ -64,17 +64,17 @@ export default function Hero() {
                 className="flex flex-wrap gap-4"
               >
                 <a
-                  href="#platform"
-                  className="inline-flex items-center gap-2 bg-white text-[#0B0D0C] px-6 py-3 text-xs tracking-widest uppercase font-semibold hover:bg-[#F4F1EB] transition-colors"
-                  style={{ fontFamily: "var(--font-syne)" }}
+                  href="#how"
+                  className="inline-flex items-center gap-2 bg-white text-[#0B0D0C] px-6 py-3 text-base tracking-widest uppercase hover:bg-[#F4F1EB] transition-colors"
+                  style={{ fontFamily: "var(--font-pixel)" }}
                 >
                   See how it works
                   <ArrowRight size={13} />
                 </a>
                 <a
                   href="#pilot"
-                  className="inline-flex items-center gap-2 border border-white/25 text-white/80 px-6 py-3 text-xs tracking-widest uppercase font-medium hover:border-white/50 hover:text-white transition-colors"
-                  style={{ fontFamily: "var(--font-syne)" }}
+                  className="inline-flex items-center gap-2 border border-white/25 text-white/80 px-6 py-3 text-base tracking-widest uppercase hover:border-white/50 hover:text-white transition-colors"
+                  style={{ fontFamily: "var(--font-pixel)" }}
                 >
                   View pilot route
                 </a>
@@ -176,23 +176,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* Scroll hint */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.8 }}
-        className="relative z-10 flex justify-center pb-10"
-        aria-hidden="true"
-      >
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-[10px] tracking-[0.22em] uppercase text-white/25"
-            style={{ fontFamily: "var(--font-syne)" }}>
-            Scroll
-          </span>
-          <span className="w-px h-8 bg-gradient-to-b from-white/25 to-transparent" />
-        </div>
-      </motion.div>
     </section>
   );
 }

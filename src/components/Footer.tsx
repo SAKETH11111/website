@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <span
               className="text-xs tracking-[0.2em] uppercase text-white/40"
-              style={{ fontFamily: "var(--font-syne)", fontWeight: 700 }}
+              style={{ fontFamily: "var(--font-pixel)" }}
             >
               VAHA
             </span>
@@ -27,6 +27,7 @@ export default function Footer() {
           <nav className="flex items-center gap-6">
             {[
               { label: "Home", href: "/" },
+              { label: "Appendix", href: "/appendix" },
               { label: "Pilot", href: "/pilot" },
               { label: "Contact", href: "/contact" },
             ].map(({ label, href }) => (
@@ -34,7 +35,7 @@ export default function Footer() {
                 key={label}
                 href={href}
                 className="text-[11px] tracking-widest uppercase text-white/20 hover:text-white/50 transition-colors"
-                style={{ fontFamily: "var(--font-syne)" }}
+                style={{ fontFamily: "var(--font-pixel)" }}
               >
                 {label}
               </Link>

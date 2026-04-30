@@ -106,16 +106,22 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scrollbar-width: none;
   }
 
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "ss01" on, "cv01" on;
+    -ms-overflow-style: none;
   }
 
   ::selection {
     background-color: var(--ink);
     color: var(--cream);
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
   }
 }
 

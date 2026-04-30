@@ -29,7 +29,7 @@ export default function Nav() {
             className={`text-sm tracking-[0.18em] uppercase transition-colors ${
               scrolled ? "text-[#0B0D0C]" : "text-white"
             }`}
-            style={{ fontFamily: "var(--font-syne)", fontWeight: 700 }}
+            style={{ fontFamily: "var(--font-pixel)" }}
           >
             VAHA
           </Link>
@@ -37,6 +37,7 @@ export default function Nav() {
           {/* Nav links */}
           <nav className="hidden md:flex items-center gap-8">
             {[
+              { label: "Appendix", href: "/appendix" },
               { label: "Pilot", href: "/pilot" },
               { label: "Contact", href: "/contact" },
             ].map(({ label, href }) => (
@@ -48,7 +49,7 @@ export default function Nav() {
                     ? "text-[#6A6A58] hover:text-[#0B0D0C]"
                     : "text-white/60 hover:text-white"
                 }`}
-                style={{ fontFamily: "var(--font-syne)" }}
+                style={{ fontFamily: "var(--font-pixel)" }}
               >
                 {label}
               </Link>
@@ -58,12 +59,12 @@ export default function Nav() {
           {/* CTA */}
           <Link
             href="/contact"
-            className={`text-xs tracking-widest uppercase font-medium px-4 py-2 border transition-colors ${
+            className={`text-base tracking-widest uppercase px-4 py-2 border transition-colors ${
               scrolled
                 ? "border-[#0B0D0C]/20 text-[#0B0D0C] hover:bg-[#0B0D0C] hover:text-[#F4F1EB]"
                 : "border-white/25 text-white hover:bg-white/10"
             }`}
-            style={{ fontFamily: "var(--font-syne)" }}
+            style={{ fontFamily: "var(--font-pixel)" }}
           >
             Get in touch
           </Link>

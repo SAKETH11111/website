@@ -1,34 +1,113 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const stats = [
-  {
-    value: "2,700+",
-    label: "Documented decentralised STPs",
-  },
-  {
-    value: "615 MLD",
-    label: "Treated daily by decentralised STPs",
-  },
-  {
-    value: "300 MLD",
-    label: "Apartment STP surplus market",
-  },
+  { prefix: "", target: 2700, suffix: "+", label: "Documented decentralised STPs" },
+  { prefix: "", target: 615, suffix: " MLD", label: "Treated daily by decentralised STPs" },
+  { prefix: "", target: 300, suffix: " MLD", label: "Apartment STP surplus market" },
 ];
 
 export default function WhyBengaluru() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const numRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useGSAP(
+    () => {
+      gsap.set(".why-headline", { opacity: 0, y: 20 });
+      gsap.set(".why-stat", { opacity: 0, y: 28 });
+      gsap.set(".why-divider", { scaleY: 0, transformOrigin: "top center" });
+      gsap.set(".why-closing", { opacity: 0, y: 16 });
+
+      gsap.to(".why-headline", {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      gsap.to(".why-divider", {
+        scaleY: 1,
+        duration: 0.6,
+        ease: "power2.inOut",
+        stagger: 0.12,
+        scrollTrigger: {
+          trigger: ".why-stats-grid",
+          start: "top 65%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      gsap.to(".why-stat", {
+        opacity: 1,
+        y: 0,
+        duration: 0.65,
+        ease: "power3.out",
+        stagger: 0.12,
+        scrollTrigger: {
+          trigger: ".why-stats-grid",
+          start: "top 65%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      // countup for each number
+      stats.forEach(({ target, suffix }, i) => {
+        const el = numRefs.current[i];
+        if (!el) return;
+        const counter = { val: 0 };
+        gsap.to(counter, {
+          val: target,
+          duration: 1.6,
+          ease: "power2.out",
+          delay: i * 0.15,
+          onUpdate() {
+            el.textContent =
+              Math.round(counter.val).toLocaleString() + suffix;
+          },
+          scrollTrigger: {
+            trigger: ".why-stats-grid",
+            start: "top 65%",
+            toggleActions: "play none none none",
+          },
+        });
+      });
+
+      gsap.to(".why-closing", {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".why-closing",
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+    },
+    { scope: sectionRef }
+  );
+
   return (
-    <section className="bg-[#F4F1EB] py-[clamp(5rem,10vw,9rem)]">
+    <section
+      ref={sectionRef}
+      className="bg-[#F4F1EB] py-[clamp(5rem,10vw,9rem)]"
+    >
       <div className="mx-auto max-w-[1320px] px-6 md:px-10 lg:px-14">
 
-        {/* Headline */}
-        <motion.h2
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5 }}
-          className="text-[#0B0D0C] leading-[1.1] mb-16 max-w-[700px]"
+        <h2
+          className="why-headline text-[#0B0D0C] leading-[1.1] mb-16 max-w-[700px]"
           style={{
             fontFamily: "var(--font-syne)",
             fontWeight: 700,
@@ -37,21 +116,15 @@ export default function WhyBengaluru() {
           }}
         >
           Bengaluru is the best place on Earth to solve this first.
-        </motion.h2>
+        </h2>
 
-        {/* Three huge stats */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1fr_1px_1fr] gap-0 mb-16">
-          {stats.map(({ value, label }, i) => (
-            <div key={value} className="contents">
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
-                className="py-10 px-0 md:px-10"
-              >
+        <div className="why-stats-grid grid grid-cols-1 md:grid-cols-[1fr_1px_1fr_1px_1fr] gap-0 mb-16">
+          {stats.map(({ suffix, label }, i) => (
+            <div key={label} className="contents">
+              <div className="why-stat py-10 px-0 md:px-10">
                 <div
-                  className="text-[#0B0D0C] leading-none mb-4"
+                  ref={(el) => { numRefs.current[i] = el; }}
+                  className="text-[#0B0D0C] leading-none mb-4 tabular-nums"
                   style={{
                     fontFamily: "var(--font-syne)",
                     fontWeight: 800,
@@ -59,27 +132,20 @@ export default function WhyBengaluru() {
                     letterSpacing: "-0.03em",
                   }}
                 >
-                  {value}
+                  0{suffix}
                 </div>
                 <div className="text-[#6A6A58] text-sm leading-snug">
                   {label}
                 </div>
-              </motion.div>
+              </div>
               {i < stats.length - 1 && (
-                <div className="hidden md:block bg-[#0B0D0C]/12 w-px self-stretch" />
+                <div className="why-divider hidden md:block bg-[#0B0D0C]/12 w-px self-stretch" />
               )}
             </div>
           ))}
         </div>
 
-        {/* Ruled line + closing */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5 }}
-          className="pt-10 border-t border-[#0B0D0C]/12"
-        >
+        <div className="why-closing pt-10 border-t border-[#0B0D0C]/12">
           <p
             className="text-[#0B0D0C] mb-3"
             style={{
@@ -91,10 +157,20 @@ export default function WhyBengaluru() {
           >
             &ldquo;Bengaluru is a global lighthouse case for decentralised water reuse.&rdquo;
           </p>
+          <a
+            href="https://welllabs.org/workshop-decentralised-wastewater-reuse/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 mb-3 text-[11px] text-[#6A6A58] underline-offset-4 hover:text-[#0B0D0C] hover:underline"
+            style={{ fontFamily: "var(--font-dm-mono)" }}
+          >
+            Christian Binz, Eawag
+            <ArrowUpRight size={12} strokeWidth={1.8} />
+          </a>
           <p className="text-[#6A6A58] text-sm leading-relaxed max-w-[640px]">
             Cities from Nairobi to São Paulo face the same pattern: rising demand, weak reuse, and infrastructure lag.
           </p>
-        </motion.div>
+        </div>
 
       </div>
     </section>

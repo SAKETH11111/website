@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Syne, DM_Mono } from "next/font/google";
+import { Inter, Fraunces, DM_Mono, VT323 } from "next/font/google";
 import "./globals.css";
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -8,10 +9,17 @@ const inter = Inter({
   weight: ["300", "400", "500"],
 });
 
-const syne = Syne({
+const fraunces = Fraunces({
   variable: "--font-syne",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+});
+
+const vt323 = VT323({
+  variable: "--font-pixel",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 const dmMono = DM_Mono({
@@ -39,10 +47,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${syne.variable} ${dmMono.variable}`}
+      className={`${inter.variable} ${fraunces.variable} ${dmMono.variable} ${vt323.variable}`}
     >
       <body className="min-h-screen bg-[#F4F1EB] font-sans antialiased">
-        {children}
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
   );
