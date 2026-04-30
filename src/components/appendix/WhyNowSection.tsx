@@ -66,13 +66,10 @@ export default function WhyNowSection() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-3">
-          {cards.map((card, i) => (
-            <motion.div
+          {cards.map((card) => (
+            <div
               key={card.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.65, delay: 0.12 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative overflow-hidden rounded-xl border border-[#0B0D0C]/8 bg-[#F4F1EB] p-7 transition-all duration-300 hover:border-[#0B0D0C]/15 hover:shadow-lg hover:shadow-[#0B0D0C]/5"
+              className="group relative overflow-hidden rounded-xl border border-[#0B0D0C]/8 bg-[#F4F1EB] p-7"
             >
               {/* Stat highlight */}
               <div className="mb-5">
@@ -104,7 +101,7 @@ export default function WhyNowSection() {
                 {card.source}
                 <ExternalLink size={10} />
               </a>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

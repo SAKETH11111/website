@@ -73,13 +73,10 @@ export default function RiskSection() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {controls.map((c, i) => (
-            <motion.div
+          {controls.map((c) => (
+            <div
               key={c.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.65, delay: 0.18 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="rounded-xl border border-white/8 bg-white/[0.04] p-8 backdrop-blur-sm transition-all duration-300 hover:border-[#4DB87A]/30 hover:bg-white/[0.06]"
+              className="rounded-xl border border-white/8 bg-white/[0.04] p-8 backdrop-blur-sm"
             >
               <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#1A5C3C]/20 border border-[#4DB87A]/20">
                 <ShieldCheck size={20} className="text-[#4DB87A]" strokeWidth={1.5} />
@@ -91,7 +88,7 @@ export default function RiskSection() {
                 {c.title}
               </div>
               <p className="text-[13px] leading-[1.7] text-white/45">{c.body}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

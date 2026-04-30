@@ -56,13 +56,10 @@ export default function ProblemSection() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-3">
-          {barriers.map((b, i) => (
-            <motion.div
+          {barriers.map((b) => (
+            <div
               key={b.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.65, delay: 0.12 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className={`relative overflow-hidden rounded-xl border border-[#0B0D0C]/8 p-8 bg-gradient-to-b ${b.gradient} backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-[#0B0D0C]/5`}
+              className={`relative overflow-hidden rounded-xl border border-[#0B0D0C]/8 p-8 bg-gradient-to-b ${b.gradient} backdrop-blur-sm`}
             >
               <div
                 className="mb-4 text-lg text-[#0B0D0C]"
@@ -71,7 +68,7 @@ export default function ProblemSection() {
                 {b.title}
               </div>
               <p className="text-[13px] leading-[1.75] text-[#5A5A4A]">{b.body}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

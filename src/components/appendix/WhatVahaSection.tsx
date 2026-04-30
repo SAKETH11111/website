@@ -97,13 +97,10 @@ export default function WhatVahaSection() {
 
           {/* Steps */}
           <div className="grid gap-5 md:grid-cols-3">
-            {steps.map((step, i) => (
-              <motion.div
+            {steps.map((step) => (
+              <div
                 key={step.number}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.65, delay: 0.18 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-xl border border-white/8 bg-white/[0.04] p-8 backdrop-blur-sm transition-all duration-300 hover:border-[#4DB87A]/20 hover:bg-white/[0.06]"
+                className="rounded-xl border border-white/8 bg-white/[0.04] p-8 backdrop-blur-sm"
               >
                 <div
                   className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#1A5C3C]/30 text-[#4DB87A] text-sm font-medium"
@@ -118,7 +115,7 @@ export default function WhatVahaSection() {
                   {step.title}
                 </div>
                 <p className="text-[13px] leading-[1.75] text-white/45">{step.body}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -165,16 +162,13 @@ export default function WhatVahaSection() {
           </div>
 
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-5">
-            {packItems.map((item, i) => (
-              <motion.div
+            {packItems.map((item) => (
+              <div
                 key={item}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={packInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: 0.08 + i * 0.04, ease: [0.16, 1, 0.3, 1] }}
-                className="rounded-lg border border-[#0B0D0C]/8 bg-white p-4 text-[13px] text-[#0B0D0C] transition-all duration-200 hover:border-[#0B0D0C]/15 hover:shadow-sm"
+                className="rounded-lg border border-[#0B0D0C]/8 bg-white p-4 text-[13px] text-[#0B0D0C]"
               >
                 {item}
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

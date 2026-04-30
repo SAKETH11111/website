@@ -66,13 +66,10 @@ export default function ValidationSection() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-3">
-          {layers.map((layer, i) => (
-            <motion.div
+          {layers.map((layer) => (
+            <div
               key={layer.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.65, delay: 0.12 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="group rounded-xl border border-[#0B0D0C]/8 bg-[#F4F1EB] p-7 transition-all duration-300 hover:border-[#0B0D0C]/15 hover:shadow-lg hover:shadow-[#0B0D0C]/5"
+              className="group rounded-xl border border-[#0B0D0C]/8 bg-[#F4F1EB] p-7"
             >
               <div className="mb-5">
                 <div
@@ -109,17 +106,12 @@ export default function ValidationSection() {
                   {layer.source}
                 </span>
               )}
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Pull quote */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="mt-12 rounded-xl border border-[#0B0D0C]/8 bg-white p-10 text-center"
-        >
+        <div className="mt-12 rounded-xl border border-[#0B0D0C]/8 bg-white p-10 text-center">
           <p
             className="mx-auto max-w-[700px] text-[#0B0D0C]"
             style={{
@@ -133,7 +125,7 @@ export default function ValidationSection() {
             The transaction is already possible. It is just not yet organized
             into a repeatable local market.
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
