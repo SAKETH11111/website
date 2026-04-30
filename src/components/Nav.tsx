@@ -25,7 +25,7 @@ export default function Nav() {
 
           {/* Wordmark */}
           <Link
-            href="/"
+            href="/#hero"
             className={`text-sm tracking-[0.18em] uppercase transition-colors ${
               scrolled ? "text-[#0B0D0C]" : "text-white"
             }`}

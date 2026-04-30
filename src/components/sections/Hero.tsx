@@ -1,195 +1,96 @@
 "use client";
 
 import { motion } from "motion/react";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import UnicornScene from "unicornstudio-react/next";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden bg-[#060908]">
-      {/* Video background */}
+    <section
+      id="hero"
+      className="relative min-h-screen flex flex-col overflow-hidden bg-[#060908]"
+    >
+      {/* Interactive background */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover opacity-60"
+        <div className="vaha-unicorn-scene h-full w-full opacity-75">
+          <UnicornScene
+            projectId="9vVHfRqwOkJH2hYVQvHa"
+            width="100%"
+            height="100%"
+            scale={1}
+            dpi={1.5}
+            lazyLoad={false}
+            ariaLabel="Animated background scene"
+            className="h-full w-full"
+          />
+        </div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_46%,rgba(6,9,8,0.12),rgba(6,9,8,0.54)_30%,rgba(6,9,8,0.84)_60%,rgba(6,9,8,0.96)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#060908]/36 via-[#060908]/18 to-[#060908]/36" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#060908]/50 via-transparent to-[#060908]/92" />
+        <div
           aria-hidden="true"
-        >
-          <source src="/exosphere_remix_scene.webm" type="video/webm" />
-        </video>
-        {/* Gradient overlay: stronger at bottom to ease into next section */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#060908]/40 via-[#060908]/20 to-[#060908]/90" />
+          className="pointer-events-none absolute bottom-0 left-1/2 h-20 w-[240px] -translate-x-1/2 bg-[#060908]"
+        />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex-1 flex items-center">
-        <div className="mx-auto max-w-[1320px] w-full px-6 md:px-10 lg:px-14 pt-28 pb-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-
-            {/* Left: headline block */}
-            <div className="lg:col-span-7">
-              {/* Headline */}
+      <div className="relative z-10 flex flex-1 items-center justify-center">
+        <div className="mx-auto flex w-full max-w-[1320px] justify-center px-6 pt-28 pb-24 md:px-10 lg:px-14">
+          <div className="flex w-full max-w-[1100px] -translate-x-[1.5vw] -translate-y-[2.5vh] flex-col items-center text-center md:-translate-x-[2vw] md:-translate-y-[6.5vh]">
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.65, ease: [0.25, 0, 0, 1] }}
-                className="text-white leading-[1.04] mb-8"
+                initial={{ y: 24, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
+                className="mb-14 max-w-full text-[#EDE9D8] leading-[0.8] tracking-[-0.045em] md:mb-16"
                 style={{
-                  fontFamily: "var(--font-syne)",
+                  fontFamily: "var(--font-hero)",
                   fontWeight: 800,
-                  fontSize: "clamp(2.6rem, 5.5vw, 5rem)",
-                  letterSpacing: "-0.02em",
+                  fontSize: "clamp(8.35rem, 27vw, 19.5rem)",
+                  textShadow: "0 10px 34px rgba(6, 9, 8, 0.3)",
                 }}
               >
-                Route the water.
+                Vaha
               </motion.h1>
 
-              {/* Subhead */}
               <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.15, ease: "easeOut" }}
-                className="text-white/55 leading-relaxed mb-10 max-w-[520px]"
-                style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)" }}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                className="mb-10 max-w-[720px] text-xl leading-[1.38] text-[#EDE9D8]/72 md:text-2xl"
+                style={{ fontFamily: "var(--font-inter)" }}
               >
                 Vaha turns surplus treated water into verified local supply
                 for construction, using the infrastructure the city already has.
               </motion.p>
 
-              {/* CTAs */}
               <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.28, ease: "easeOut" }}
-                className="flex flex-wrap gap-4"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-wrap justify-center gap-4"
               >
                 <a
                   href="#how"
-                  className="inline-flex items-center gap-2 bg-white text-[#0B0D0C] px-6 py-3 text-base tracking-widest uppercase hover:bg-[#F4F1EB] transition-colors"
+                  className="group inline-flex items-center gap-2 self-start rounded-full bg-[#E1E0CC] py-1 pl-5 pr-1 text-sm text-[#060908] transition-all hover:gap-3 sm:text-base"
                   style={{ fontFamily: "var(--font-pixel)" }}
                 >
                   See how it works
-                  <ArrowRight size={13} />
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#060908] text-[#E1E0CC] transition-transform group-hover:scale-110 sm:h-10 sm:w-10">
+                    <ArrowRight size={16} />
+                  </span>
                 </a>
-                <a
-                  href="#pilot"
+                <Link
+                  href="/pilot"
                   className="inline-flex items-center gap-2 border border-white/25 text-white/80 px-6 py-3 text-base tracking-widest uppercase hover:border-white/50 hover:text-white transition-colors"
                   style={{ fontFamily: "var(--font-pixel)" }}
                 >
                   View pilot route
-                </a>
+                </Link>
               </motion.div>
-            </div>
-
-            {/* Right: exchange layer panel */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <motion.div
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0, 0, 1] }}
-                className="w-full max-w-[400px] border border-white/10 bg-[#060908]/80 backdrop-blur-sm"
-                style={{ fontFamily: "var(--font-dm-mono)" }}
-              >
-                {/* Panel header */}
-                <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/8">
-                  <span className="text-[10px] tracking-[0.22em] uppercase text-white/40">
-                    Vaha Exchange Layer
-                  </span>
-                  <div className="flex items-center gap-1.5">
-                    <span className="vaha-live w-1.5 h-1.5 rounded-full bg-[#4DB87A]" />
-                    <span className="text-[10px] tracking-widest text-[#4DB87A]/70 uppercase">
-                      Live
-                    </span>
-                  </div>
-                </div>
-
-                {/* Route */}
-                <div className="px-5 py-4 border-b border-white/8">
-                  <div className="text-[10px] tracking-[0.18em] uppercase text-white/30 mb-2.5">
-                    Route
-                  </div>
-                  <div className="flex items-center gap-2 text-[13px] text-white/80">
-                    <span>Bellandur</span>
-                    <span className="flex-1 border-t border-dashed border-white/15 mx-1" />
-                    <span>Kadubwis</span>
-                  </div>
-                </div>
-
-                {/* Steps */}
-                <div className="px-5 pt-4 pb-3 border-b border-white/8 space-y-5">
-                  {[
-                    {
-                      n: "01",
-                      label: "Source",
-                      value: "Apartment STP",
-                      meta: "Treated output · Class A",
-                    },
-                    {
-                      n: "02",
-                      label: "Verify",
-                      value: "Water Acceptance Pack",
-                      meta: "Quality gate · Passed",
-                    },
-                    {
-                      n: "03",
-                      label: "Deliver",
-                      value: "Existing tanker route",
-                      meta: "Last mile · Confirmed",
-                    },
-                  ].map(({ n, label, value, meta }) => (
-                    <div key={n} className="flex gap-4">
-                      <span
-                        className="text-[11px] tabular-nums mt-0.5 shrink-0"
-                        style={{ color: "#4DB87A", opacity: 0.7 }}
-                      >
-                        {n}
-                      </span>
-                      <div>
-                        <div className="text-[10px] tracking-[0.16em] uppercase text-white/30 mb-0.5">
-                          {label}
-                        </div>
-                        <div className="text-[13px] text-white/80">{value}</div>
-                        <div className="text-[11px] text-white/30 mt-0.5">{meta}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Status footer */}
-                <div className="px-5 py-3.5 space-y-2">
-                  {[
-                    { label: "Route logic", value: "Under 2 km" },
-                    { label: "Load status", value: "Verified" },
-                  ].map(({ label, value }) => (
-                    <div key={label} className="flex items-center justify-between">
-                      <span className="text-[11px] text-white/30">{label}</span>
-                      <div className="flex items-center gap-2">
-                        <span className="text-[11px] text-white/55">{value}</span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#4DB87A]/60" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
-
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function ArrowRight({ size }: { size: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 13 13"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="square" />
-    </svg>
   );
 }

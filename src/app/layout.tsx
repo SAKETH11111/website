@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces, DM_Mono, VT323 } from "next/font/google";
+import { Inter, Fraunces, DM_Mono, VT323, Geist } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 
@@ -14,6 +14,11 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
+});
+
+const geist = Geist({
+  variable: "--font-hero",
+  subsets: ["latin"],
 });
 
 const vt323 = VT323({
@@ -47,7 +52,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${fraunces.variable} ${dmMono.variable} ${vt323.variable}`}
+      className={`${inter.variable} ${fraunces.variable} ${dmMono.variable} ${vt323.variable} ${geist.variable}`}
     >
       <body className="min-h-screen bg-[#F4F1EB] font-sans antialiased">
         <SmoothScrollProvider>{children}</SmoothScrollProvider>

@@ -132,6 +132,10 @@
 }
 .vaha-live { animation: vaha-pulse 2.4s ease-in-out infinite; }
 
+.vaha-unicorn-scene a[href*="unicorn.studio?utm_source=public-url"] {
+  display: none !important;
+}
+
 /* Reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .vaha-live { animation: none; }
