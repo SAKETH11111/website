@@ -100,26 +100,28 @@ export default function RouteEconomics() {
         </h2>
 
         {/* Three parties */}
-        <div className="re-parties grid grid-cols-1 md:grid-cols-[1fr_1px_1fr_1px_1fr] gap-0 mb-16 border border-[#0B0D0C]/12">
+        <div className="re-parties grid grid-cols-1 md:grid-cols-3 gap-0 mb-16 border border-[#0B0D0C]/12">
           {parties.map(({ label, sub }, i) => (
-            <div key={label} className="contents">
-              <div className="px-8 py-6 text-center">
-                <div
-                  className="text-[#0B0D0C] mb-1"
-                  style={{
-                    fontFamily: "var(--font-syne)",
-                    fontWeight: 700,
-                    fontSize: "clamp(1rem, 1.5vw, 1.2rem)",
-                    letterSpacing: "-0.01em",
-                  }}
-                >
-                  {label}
-                </div>
-                <div className="text-[#6A6A58] text-xs">{sub}</div>
+            <div
+              key={label}
+              className={`px-8 py-6 text-center ${
+                i < parties.length - 1
+                  ? "border-b border-[#0B0D0C]/12 md:border-b-0 md:border-r md:border-[#0B0D0C]/12"
+                  : ""
+              }`}
+            >
+              <div
+                className="text-[#0B0D0C] mb-1"
+                style={{
+                  fontFamily: "var(--font-syne)",
+                  fontWeight: 700,
+                  fontSize: "clamp(1rem, 1.5vw, 1.2rem)",
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                {label}
               </div>
-              {i < parties.length - 1 && (
-                <div className="hidden md:block bg-[#0B0D0C]/12 w-px self-stretch" />
-              )}
+              <div className="text-[#6A6A58] text-xs">{sub}</div>
             </div>
           ))}
         </div>

@@ -22,7 +22,6 @@ export default function WhyBengaluru() {
     () => {
       gsap.set(".why-headline", { opacity: 0, y: 20 });
       gsap.set(".why-stat", { opacity: 0, y: 28 });
-      gsap.set(".why-divider", { scaleY: 0, transformOrigin: "top center" });
       gsap.set(".why-closing", { opacity: 0, y: 16 });
 
       gsap.to(".why-headline", {
@@ -33,18 +32,6 @@ export default function WhyBengaluru() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 60%",
-          toggleActions: "play none none none",
-        },
-      });
-
-      gsap.to(".why-divider", {
-        scaleY: 1,
-        duration: 0.6,
-        ease: "power2.inOut",
-        stagger: 0.12,
-        scrollTrigger: {
-          trigger: ".why-stats-grid",
-          start: "top 65%",
           toggleActions: "play none none none",
         },
       });
@@ -118,29 +105,31 @@ export default function WhyBengaluru() {
           Bengaluru is the best place on Earth to solve this first.
         </h2>
 
-        <div className="why-stats-grid grid grid-cols-1 md:grid-cols-[1fr_1px_1fr_1px_1fr] gap-0 mb-16">
+        <div className="why-stats-grid grid grid-cols-1 md:grid-cols-3 gap-0 mb-16">
           {stats.map(({ suffix, label }, i) => (
-            <div key={label} className="contents">
-              <div className="why-stat py-10 px-0 md:px-10">
-                <div
-                  ref={(el) => { numRefs.current[i] = el; }}
-                  className="text-[#0B0D0C] leading-none mb-4 tabular-nums"
-                  style={{
-                    fontFamily: "var(--font-syne)",
-                    fontWeight: 800,
-                    fontSize: "clamp(3rem, 7vw, 6rem)",
-                    letterSpacing: "-0.03em",
-                  }}
-                >
-                  0{suffix}
-                </div>
-                <div className="text-[#6A6A58] text-sm leading-snug">
-                  {label}
-                </div>
+            <div
+              key={label}
+              className={`why-stat py-10 px-0 md:px-10 ${
+                i < stats.length - 1
+                  ? "border-b border-[#0B0D0C]/12 md:border-b-0 md:border-r md:border-[#0B0D0C]/12"
+                  : ""
+              }`}
+            >
+              <div
+                ref={(el) => { numRefs.current[i] = el; }}
+                className="text-[#0B0D0C] leading-none mb-4 tabular-nums"
+                style={{
+                  fontFamily: "var(--font-syne)",
+                  fontWeight: 800,
+                  fontSize: "clamp(3rem, 7vw, 6rem)",
+                  letterSpacing: "-0.03em",
+                }}
+              >
+                0{suffix}
               </div>
-              {i < stats.length - 1 && (
-                <div className="why-divider hidden md:block bg-[#0B0D0C]/12 w-px self-stretch" />
-              )}
+              <div className="text-[#6A6A58] text-sm leading-snug">
+                {label}
+              </div>
             </div>
           ))}
         </div>

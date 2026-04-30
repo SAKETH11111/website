@@ -154,12 +154,12 @@ export default function HowVahaWorks() {
             {/* Quality table */}
             <div className="px-7 py-5 border-b border-[#0B0D0C]/10">
               <div className="text-[10px] tracking-[0.15em] uppercase text-[#6A6A58] mb-3">Water Quality (Test)</div>
-              <table className="w-full text-[12px]">
+              <table className="w-full text-[11px] sm:text-[12px]">
                 <tbody>
                   {qualityParams.map(({ param, value, range }) => (
                     <tr key={param} className="border-b border-[#0B0D0C]/6 last:border-0">
-                      <td className="py-1.5 text-[#6A6A58] w-[130px]">{param}</td>
-                      <td className="py-1.5 text-[#0B0D0C] w-[70px] tabular-nums">{value}</td>
+                      <td className="py-1.5 text-[#6A6A58] w-[100px] sm:w-[130px]">{param}</td>
+                      <td className="py-1.5 text-[#0B0D0C] w-[56px] sm:w-[70px] tabular-nums">{value}</td>
                       <td className="py-1.5 text-[#6A6A58]/55">{range}</td>
                       <td className="py-1.5 text-right">
                         <span style={{ color: "#1A5C3C", fontWeight: 600 }}>✓</span>

@@ -55,13 +55,10 @@ export default function ClosingCTA() {
             letterSpacing: "-0.03em",
           }}
         >
-          Bengaluru does not need
-          <br />
-          to wait for more water.
-          <br />
-          It needs a better way to move
-          <br />
-          <span className="text-white/50">the water it already has.</span>
+          Bengaluru does not need<br className="hidden sm:block" />
+          {" "}to wait for more water.<br className="hidden sm:block" />
+          {" "}It needs a better way to move<br className="hidden sm:block" />
+          {" "}<span className="text-white/50">the water it already has.</span>
         </h2>
 
         <p
