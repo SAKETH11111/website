@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -67,33 +68,51 @@ export default function ContactPage() {
                 >
                   Contact
                 </div>
-                <h1
-                  className="text-white leading-[1.05] mb-8"
-                  style={{
-                    fontFamily: "var(--font-syne)",
-                    fontWeight: 700,
-                    fontSize: "clamp(2rem, 4.5vw, 3.75rem)",
-                    letterSpacing: "-0.025em",
-                  }}
-                >
-                  Build the water layer with us.
-                </h1>
-                <p
-                  className="text-white/35 text-sm leading-relaxed max-w-[380px] mb-12"
-                  style={{ fontFamily: "var(--font-inter)" }}
-                >
-                  We are looking for STP operators, construction developers, tanker
-                  operators, and infrastructure investors in the Bengaluru corridor.
-                  If you operate in this space, we want to talk.
-                </p>
-
-                <div className="pt-8 border-t border-white/8">
+                <div className="mb-10">
+                  <div className="relative h-28 w-28 overflow-hidden rounded-full border border-white/12 mb-6">
+                    <Image
+                      src="/rudaiba-tarannum.jpg"
+                      alt="Portrait of Rudaiba Tarannum"
+                      fill
+                      sizes="112px"
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+                  <div
+                    className="text-[10px] tracking-[0.18em] uppercase text-white/25 mb-3"
+                    style={{ fontFamily: "var(--font-dm-mono)" }}
+                  >
+                    Founder
+                  </div>
+                  <div
+                    className="text-white leading-[0.98] mb-5"
+                    style={{
+                      fontFamily: "var(--font-syne)",
+                      fontWeight: 700,
+                      fontSize: "clamp(2.15rem, 4vw, 3.35rem)",
+                      letterSpacing: "-0.03em",
+                    }}
+                  >
+                    Rudaiba Tarannum
+                  </div>
+                  <p className="text-white/55 text-base leading-relaxed max-w-[34rem] mb-4">
+                    Founder of Vaha, working to turn Bengaluru&apos;s treated water
+                    surplus into a trusted, verified local supply for construction.
+                  </p>
+                  <p className="text-white/35 text-sm leading-relaxed max-w-[34rem]">
+                    I&apos;m looking to connect with STP operators, developers,
+                    tanker partners, researchers, and early infrastructure backers
+                    who want to help shape the first corridor.
+                  </p>
+                </div>
+                <div className="mt-8">
                   <p
                     className="text-[11px] text-white/20 leading-relaxed"
                     style={{ fontFamily: "var(--font-dm-mono)" }}
                   >
                     Vaha is building the exchange layer for Bengaluru&apos;s treated
-                    water surplus. Pilot launches Q3 2025. Bellandur corridor, first route.
+                    water surplus. Pilot launches Q3 2026. Bellandur corridor, first route.
                   </p>
                 </div>
               </div>

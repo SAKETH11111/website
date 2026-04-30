@@ -138,7 +138,7 @@ export default function HowVahaWorks() {
               <div className="text-[10px] tracking-[0.15em] uppercase text-[#6A6A58] mb-3">Dispatch Details</div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-3">
                 {[
-                  ["Date", "17 May 2025"],
+                  ["Date", "17 May 2026"],
                   ["Time", "06:45 AM"],
                   ["Vehicle", "KA 05 AB 1234"],
                   ["Tanker", "TN-08"],
@@ -174,7 +174,7 @@ export default function HowVahaWorks() {
             <div className="px-7 py-5">
               <div className="text-[10px] tracking-[0.15em] uppercase text-[#6A6A58] mb-2">Approved by (QMS)</div>
               <div className="text-[12px] text-[#0B0D0C]">Rudaiba Tarannum</div>
-              <div className="text-[11px] text-[#6A6A58]">2 May 2025, 11:30 AM</div>
+              <div className="text-[11px] text-[#6A6A58]">2 May 2026, 11:30 AM</div>
             </div>
           </div>
 

@@ -47,7 +47,7 @@ export default function Footer() {
             className="text-xs text-white/20"
             style={{ fontFamily: "var(--font-dm-mono)" }}
           >
-            © 2024 Vaha
+            © 2026 Vaha
           </p>
 
         </div>
